@@ -3,7 +3,11 @@ Contains functionality to fit a model
 to the given data and track the loss and accuracy for each epoch.
 """
 import torch
+from tqdm.auto import tqdm
+from engine import train, test
 from accuracy import accuracy_fn
+import numpy as np
+from time import time
 
 def fit(model: torch.nn.Module,
         epochs: int,
@@ -12,7 +16,7 @@ def fit(model: torch.nn.Module,
         loss_fn: torch.nn.Module,
         optimizer: torch.optim.Optimizer,
         device: torch.device,
-        accuracy_fn,
+        accuracy_fn=accuracy_fn,
         patience: int=5,
         min_delta: float=0.001,
         wait: int=0):
