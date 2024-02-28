@@ -46,7 +46,7 @@ def test(model: torch.nn.Module,
   model.to(device)
   model.eval()
   with torch.inference_mode():
-    for X, y in test_dataloader:
+    for X, y in dataloader:
       X, y = X.to(device), y.to(device)
 
       y_pred = model(X)
