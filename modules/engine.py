@@ -41,7 +41,7 @@ def test(model: torch.nn.Module,
          dataloader: torch.utils.data.DataLoader,
          loss_fn: torch.nn.Module,
          device: torch.device,
-         accurcay_fn=accuracy_fn):
+         accuracy_fn=accuracy_fn):
   test_loss, test_acc = 0, 0
 
   model.to(device)
